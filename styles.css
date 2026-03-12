@@ -1,0 +1,253 @@
+/* Minimalist palette and modern typography */
+/* Use Helvetica Neue / system sans for a clean, museum‑style look */
+@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap');
+
+:root {
+  --bg-white: #ffffff;                /* fondo principal blanco */
+  --bg-secondary: #f5f5f5;           /* gris claro para secciones */
+  --text-dark: #000000;              /* negro para textos */
+  --text-muted: #555555;
+  --accent: #e60023;                 /* color puntual para destacar obras */
+  --font-main: 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-head: 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  background: var(--bg-white);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+header {
+  background: var(--bg-white);
+  color: var(--text-dark);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 10px 0;
+  display: block;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  background: var(--bg-white);
+  margin-top: 40px;
+}
+
+section h2 {
+  font-family: var(--font-head);
+  color: var(--text-dark);
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.gallery img {
+  max-width: 45%;
+  height: auto;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.gallery img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Accent dotted backgrounds and pop patterns */
+.portada {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><circle cx="25" cy="25" r="8" fill="%23e91e63"/></svg>') repeat, var(--pop-yellow);
+}
+
+.section-pattern {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23ffeb3b"/><circle cx="20" cy="20" r="5" fill="%23212121"/></svg>') repeat;
+}
+
+button, .btn {
+  background: var(--bg-white);
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+button:hover, .btn:hover {
+  background: var(--text-dark);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:active, .btn:active {
+  transform: translateY(0);
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border-top: 1px solid #e0e0e0;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 8px 0;
+}
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--text-dark);
+  text-decoration: underline;
+}
+
+.source-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.source-link:hover {
+  color: var(--text-dark);
+  text-decoration: underline;
+}
+
+/* Efectos sutiles */
+section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.95;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+section ul li {
+  transition: transform 0.2s ease;
+}
+
+section ul li:hover {
+  transform: translateX(5px);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+  display: inline-block;
+}
+
+/* alternating section backgrounds */
+section:nth-of-type(even) {
+  background: var(--bg-secondary);
+}
+
+/* Audio player styling */
+audio {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  display: block;
+  outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+  background: var(--bg-secondary);
+}
+
+/* YouTube video styling */
+iframe {
+  max-width: 100%;
+  margin: 20px auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* accent color for artwork titles or links */
+.accent {
+  color: var(--accent);
+}
